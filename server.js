@@ -25,7 +25,7 @@ let roomCache = {};
 var rooms = getChatroomData();
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')))
+app.use('/index.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')))
 
 /**
  * Handles a new client connection and setup
