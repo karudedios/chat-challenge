@@ -24,8 +24,8 @@ const writeToChatroomData = fs.writeFileSync.bind(fs, chatroomsDat);
 let roomCache = {};
 var rooms = getChatroomData();
 
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')))
 
 /**
  * Handles a new client connection and setup
