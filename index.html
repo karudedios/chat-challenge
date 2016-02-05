@@ -1,6 +1,7 @@
 <!doctype html>
 <html id="app-container">
   <head>
+    <base href='http://karudedios.github.io/chat-challenge/' />
     <title>Chat App</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
@@ -202,7 +203,7 @@
     <script type="text/javascript" src="jspm_packages/system.js"></script>
     <script type="text/javascript" src="config.js"></script>
     <script>
-      System.import('app/app').catch(console.error.bind(console));
+      System.import('./app/app').catch(console.error.bind(console));
     </script>
   </body>
 </html>

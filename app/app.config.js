@@ -9,7 +9,7 @@ import authConfigBuilder from './components/auth/auth.config';
 import chatroomConfigBuilder from './components/chatroom/chatroom.config';
 
 const appConfig = ($provide, $stateProvider, $urlRouterProvider) => {
-  const socket = io();
+  const socket = io('http://karudedios.github.io/', { path: '/chat-challenge/socket.io' });
 
   $provide.provider('socket', function() {
     this.$get = () => socket;

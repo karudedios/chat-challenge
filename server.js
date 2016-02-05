@@ -5,10 +5,10 @@ var path    = require('path');
 var express = require('express');
 var app     = express();
 var server  = require('http').createServer(app);
-var io      = require('socket.io')(server);
+var io      = require('socket.io')(server, { path: '/chat-challenge/socket.io'});
 
-var Constants = require('./public/app/utils/constants');
-var helpers   = require('./public/app/utils/helpers');
+var Constants = require('./app/utils/constants');
+var helpers   = require('./app/utils/helpers');
 
 var compose = helpers.compose;
 var isMd5 = helpers.isMd5;
@@ -16,16 +16,16 @@ var users = [];
 
 const chatroomsDat = './resources/chatrooms.dat';
 
-const format = (str) => str.split('\n').map(r => r.trim().replace(/ +/g, '_'));
+const format = (arr) => arr.map(r => r.trim().replace(/ +/g, '_'));
 
-const getChatroomData = compose(format, fs.readFileSync.bind(fs, chatroomsDat, 'utf8'));
-const writeToChatroomData = fs.writeFileSync.bind(fs, chatroomsDat);
+const getChatroomData = compose(format, () => rooms))
+const writeToChatroomData = (newRooms) => { rooms = newRooms; };
 
 let roomCache = {};
 var rooms = getChatroomData();
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/index.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')))
+app.use(express.static(path.join(__dirname, 'app')));
+app.use(express.static(path.join(__dirname)));
 
 /**
  * Handles a new client connection and setup

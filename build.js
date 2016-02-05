@@ -43213,7 +43213,7 @@ System.register('app/app.config.js', ['github:socketio/socket.io-client@1.4.5.js
     }],
     execute: function () {
       appConfig = function appConfig($provide, $stateProvider, $urlRouterProvider) {
-        var socket = io();
+        var socket = io('http://karudedios.github.io/', { path: '/chat-challenge/socket.io' });
 
         $provide.provider('socket', function () {
           this.$get = function () {

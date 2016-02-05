@@ -2,7 +2,7 @@
   "name": "chat-challenge",
   "version": "0.0.0",
   "description": "A fun challenge to get you going before the interview",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "start-dev": "DEBUG=* nodemon server.js"
@@ -30,9 +30,6 @@
     "socket.io": "^1.4.4"
   },
   "jspm": {
-    "directories": {
-      "baseURL": "public"
-    },
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.4.9",
       "angular-animate": "github:angular/bower-angular-animate@^1.4.9",
