@@ -24,6 +24,7 @@ const writeToChatroomData = fs.writeFileSync.bind(fs, chatroomsDat);
 let roomCache = {};
 var rooms = getChatroomData();
 
+app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, '/public')));
 
 /**
